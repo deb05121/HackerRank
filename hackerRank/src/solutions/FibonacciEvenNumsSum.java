@@ -8,7 +8,7 @@ public class FibonacciEvenNumsSum {
         System.out.println("T: ");
         int t = in.nextInt();
         long[] numbers = new long[t];
-        int sum = 0;
+
         for (int a0 = 0; a0 < t; a0++) {
             System.out.println("N= ");
             long n = in.nextLong();
@@ -16,7 +16,7 @@ public class FibonacciEvenNumsSum {
         }
         Arrays.sort(numbers);
         long[] evenSums = evenFibonacciSum(numbers);
-        for (long evenSum: evenSums) {
+        for (long evenSum : evenSums) {
             System.out.println(evenSum);
         }
 
@@ -28,10 +28,10 @@ public class FibonacciEvenNumsSum {
         int fibPreviousOne = fibFirst;
         int fibPreviousTwo = fibSecond;
         int fibNext = 0;
-        long[] evenSums= new long[numbers.length];
+        long[] evenSums = new long[numbers.length];
         evenSums[0] = 2;
         int i = 0;
-        while(i<numbers.length){
+        while (i < numbers.length) {
             while (fibNext + fibPreviousOne < numbers[i]) {
                 fibNext = fibPreviousOne + fibPreviousTwo;
 
@@ -41,8 +41,8 @@ public class FibonacciEvenNumsSum {
                 fibPreviousOne = fibPreviousTwo;
                 fibPreviousTwo = fibNext;
             }
-            if((i+1)<numbers.length){
-                evenSums[i+1]=evenSums[i];
+            if ((i + 1) < numbers.length) {
+                evenSums[i + 1] = evenSums[i];
             }
             i++;
         }
