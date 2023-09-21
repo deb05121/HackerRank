@@ -1,13 +1,16 @@
 package regexSolutions;
 
 public class StringExercisesByRegex {
+    public StringExercisesByRegex() {
+    }
+
     public static void main(String[] args) {
         String strEan13 = "1023456789876";
-        System.out.println(Ean13Checker(strEan13));
+        System.out.println(isItValidEan13Code(strEan13));
 
 
-        String itPhoneNr = "+393123456789";
-        System.out.println(itPhoneChecker(itPhoneNr));
+        String itPhoneNr = "+39312345678";
+        System.out.println(isItValidPhoneNumber(itPhoneNr));
 
         String text = "hello";
         System.out.println(textChecker(text));
@@ -24,11 +27,11 @@ public class StringExercisesByRegex {
         return text.matches("([hH][eE][lL][lL][oO])|([wW][oO][rR][lL][dD])");
     }
 
-    public static boolean itPhoneChecker(String itPhoneNr) {
-        return itPhoneNr.matches("\\+393\\d{9}\\d?");
+    public static boolean isItValidPhoneNumber(String itPhoneNr) {
+        return itPhoneNr.matches("\\+393\\d{8,9}");
     }
 
-    public static boolean Ean13Checker(String strEan13) {
+    public static boolean isItValidEan13Code(String strEan13) {
         return strEan13.matches("\\d{13}");
     }
 }

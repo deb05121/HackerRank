@@ -9,18 +9,18 @@ public class TestStringExercisesByRegex {
     @ParameterizedTest
     @ValueSource(strings = {"123456789012", "12345678901234"})
     void ean13Test(String str) {
-        Assertions.assertFalse(StringExercisesByRegex.Ean13Checker(str));
+        Assertions.assertFalse(StringExercisesByRegex.isItValidEan13Code(str));
     }
 
     @Test
     void ean13TrueTest() {
-        Assertions.assertTrue(StringExercisesByRegex.Ean13Checker("1234567890123"));
+        Assertions.assertTrue(StringExercisesByRegex.isItValidEan13Code("1234567890123"));
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"+393000000000", "+3931111111111"})
+    @ValueSource(strings = {"+39300000000", "+393111111111"})
     void itPhoneNr(String str) {
-        Assertions.assertTrue(StringExercisesByRegex.itPhoneChecker(str));
+        Assertions.assertTrue(StringExercisesByRegex.isItValidPhoneNumber(str));
     }
 
     @ParameterizedTest

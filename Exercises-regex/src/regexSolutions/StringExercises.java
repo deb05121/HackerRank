@@ -1,15 +1,18 @@
 package regexSolutions;
 
 public class StringExercises {
+    public StringExercises() {
+    }
+
     public static void main(String[] args) {
         String strEan13 = "1023456789876";
-        System.out.println(ean13Check(strEan13));
+        System.out.println(isValidEan13Code(strEan13));
 
         String itPhoneNr = "+393123456789";
-        System.out.println(isItPhoneNr(itPhoneNr));
+        System.out.println(isItValidPhoneNr(itPhoneNr));
 
-        String text = "hello";
-        System.out.println(isworldOrhello(text));
+        String text = "hElLo";
+        System.out.println(isWorldOrHello(text));
 
         String specialCode = "abcQWaB93*,;-:.";
         System.out.println(isSpecialCode(specialCode));
@@ -40,14 +43,14 @@ public class StringExercises {
             }
             String subStrFourth = specialCode.substring(7, 8);
             //System.out.println(subStrFourth);
-            for (int i = 0; i < 1; i++) {
-                if (subStrFourth.charAt(i) < 48 || subStrFourth.charAt(i) > 57) {
-                    return false;
-                }
+            int i = 0;
+            if (subStrFourth.charAt(i) < 48 || subStrFourth.charAt(i) > 57) {
+                return false;
             }
+
             String subStrFifth = specialCode.substring(8, 9);
             //System.out.println(subStrFifth);
-            for (int i = 0; i < 1; i++) {
+            for (i = 0; i < 1; i++) {
                 if (subStrFifth.charAt(i) < 49 || subStrFifth.charAt(i) > 53) {
                     return false;
                 }
@@ -58,11 +61,12 @@ public class StringExercises {
         return false;
     }
 
-    public static boolean isworldOrhello(String text) {
-        return text.equals("hello") || text.equals("world") || text.equals("Hello") || text.equals("World") || text.equals("HELLO") || text.equals("WORLD");
+    public static boolean isWorldOrHello(String text) {
+
+        return text.equalsIgnoreCase("hello") || text.equalsIgnoreCase("world");
     }
 
-    public static boolean isItPhoneNr(String itPhoneNr) {
+    public static boolean isItValidPhoneNr(String itPhoneNr) {
         if (itPhoneNr.length() == 13 || itPhoneNr.length() == 14) {
             String substrFront = itPhoneNr.substring(0, 4);
 
@@ -83,7 +87,7 @@ public class StringExercises {
         return false;
     }
 
-    public static boolean ean13Check(String strEan13) {
+    public static boolean isValidEan13Code(String strEan13) {
         if (strEan13.length() != 13) {
             return false;
         }
