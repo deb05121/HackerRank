@@ -16,10 +16,10 @@ public class StringExercisesByRegex {
         System.out.println(textChecker(text));
 
         String specialCode = "abcQWaB93*,;-:.";
-        System.out.println(specCodeChecker(specialCode));
+        System.out.println(isItSpecCode(specialCode));
     }
 
-    public static boolean specCodeChecker(String text) {
+    public static boolean isItSpecCode(String text) {
         return text.matches("\\D{3}[A-Z]{2}[a-zA-Z]{2}\\d[1-5].{5}\\.");
     }
 

@@ -45,12 +45,12 @@ public class TestStringExercisesByRegex {
     @ParameterizedTest
     @ValueSource(strings = {"abcQWaB93*,;-:.", "#&@ASef03*,;-:.", "abcQWaB91_><?/."})
     void specCodeTestTrue(String str) {
-        Assertions.assertTrue(StringExercisesByRegex.specCodeChecker(str));
+        Assertions.assertTrue(StringExercisesByRegex.isItSpecCode(str));
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"a2cQWaB93*,;-:.", "#&@aSef03*,;-:.", "abcQWaB98_><?/."})
     void specCodeTestFalse(String str) {
-        Assertions.assertFalse(StringExercisesByRegex.specCodeChecker(str));
+        Assertions.assertFalse(StringExercisesByRegex.isItSpecCode(str));
     }
 }
