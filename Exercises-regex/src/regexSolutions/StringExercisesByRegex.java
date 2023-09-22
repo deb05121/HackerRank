@@ -1,7 +1,7 @@
 package regexSolutions;
 
 public class StringExercisesByRegex {
-    public StringExercisesByRegex() {
+    private StringExercisesByRegex() {
     }
 
     public static void main(String[] args) {
@@ -19,19 +19,19 @@ public class StringExercisesByRegex {
         System.out.println(specCodeChecker(specialCode));
     }
 
-    public static boolean specCodeChecker(String specialCode) {
-        return specialCode.matches("\\D{3}[A-Z]{2}[a-zA-Z]{2}\\d[1-5].{5}\\.");
+    public static boolean specCodeChecker(String text) {
+        return text.matches("\\D{3}[A-Z]{2}[a-zA-Z]{2}\\d[1-5].{5}\\.");
     }
 
     public static boolean textChecker(String text) {
         return text.matches("([hH][eE][lL][lL][oO])|([wW][oO][rR][lL][dD])");
     }
 
-    public static boolean isItValidPhoneNumber(String itPhoneNr) {
-        return itPhoneNr.matches("\\+393\\d{8,9}");
+    public static boolean isItValidPhoneNumber(String text) {
+        return text.matches("\\+393\\d{8,9}");
     }
 
-    public static boolean isItValidEan13Code(String strEan13) {
-        return strEan13.matches("\\d{13}");
+    public static boolean isItValidEan13Code(String text) {
+        return text.matches("\\d{13}");
     }
 }

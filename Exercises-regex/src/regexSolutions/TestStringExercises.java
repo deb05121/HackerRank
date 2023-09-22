@@ -17,21 +17,46 @@ public class TestStringExercises {
         Assertions.assertTrue(StringExercises.isValidEan13Code("1234567890123"));
     }
 
+
     @ParameterizedTest
-    @ValueSource(strings = {"+393000000000", "+3931111111111"})
-    void itPhoneNr(String str) {
+    @ValueSource(strings = {"+39323456789", "+393234567890"})
+    void itPhoneNrTrue(String str) {
         Assertions.assertTrue(StringExercises.isItValidPhoneNr(str));
     }
 
     @ParameterizedTest
+    @ValueSource(strings = {"+3932345678", "+3932345678901"})
+    void itPhoneNrFalse(String str) {
+        Assertions.assertFalse(StringExercisesByRegex.isItValidPhoneNumber(str));
+    }
+
+    @ParameterizedTest
     @ValueSource(strings = {"hello", "Hello", "hElLo", "HELLO", "WORLD", "WoRlD", "World", "world"})
-    void textTester(String str) {
+    void textTesterTrue(String str) {
         Assertions.assertTrue(StringExercises.isWorldOrHello(str));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"ello", "Hllo", "hELo", "HELL", "ORLD", "WRlD", "Wold", "word"})
+    void textTesterFalse(String str) {
+        Assertions.assertFalse(StringExercises.isWorldOrHello(str));
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"abcQWaB93*,;-:.", "#&@ASef93*,;-:.", "abcQWaB93_><?/."})
     void specCodeTest(String str) {
         Assertions.assertTrue(StringExercises.isSpecialCode(str));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"abcQWaB93*,;-:.", "#&@ASef03*,;-:.", "abcQWaB91_><?/."})
+    void specCodeTestTrue(String str) {
+        Assertions.assertTrue(StringExercisesByRegex.specCodeChecker(str));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"a2cQWaB93*,;-:.", "#&@aSef03*,;-:.", "abcQWaB98_><?/."})
+    void specCodeTestFalse(String str) {
+        Assertions.assertFalse(StringExercisesByRegex.specCodeChecker(str));
     }
 }
